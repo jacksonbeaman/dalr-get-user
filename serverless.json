@@ -1,0 +1,20 @@
+{
+  "service": "mern-finance-backend-for-frontend",
+  "plugins": ["serverless-offline"],
+  "provider": {
+    "name": "aws",
+    "runtime": "nodejs14.x",
+    "stage": "dev",
+    "region": "us-west-2"
+  },
+  "functions": {
+    "getUser": {
+      "handler": "src/lambda/getUser.handler",
+      "events": [
+        {
+          "httpApi": "GET /getUser"
+        }
+      ]
+    }
+  }
+}
