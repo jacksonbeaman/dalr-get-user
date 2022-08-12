@@ -1,5 +1,5 @@
 {
-  "service": "mern-finance-backend-for-frontend",
+  "service": "dalr-get-user",
   "plugins": ["serverless-offline"],
   "provider": {
     "name": "aws",
@@ -9,7 +9,7 @@
   },
   "functions": {
     "getUser": {
-      "handler": "src/lambda/getUser.handler",
+      "handler": "src/index.handler",
       "events": [
         {
           "httpApi": "GET /getUser"
