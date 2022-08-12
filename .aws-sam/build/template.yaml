@@ -1,23 +1,24 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: sam-dalr-get-user-lambda
 Transform:
-- AWS::Serverless-2016-10-31
+  - AWS::Serverless-2016-10-31
 Globals:
   Function:
     Tracing: Active
   Api:
     TracingEnabled: true
 Resources:
-  getQuoteFunction:
+  getUserFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: src/index.handler
       Runtime: nodejs14.x
       Architectures:
-      - x86_64
+        - x86_64
       MemorySize: 128
       Timeout: 100
-      Description: A endpoint for getting user info from DynamoDB for dalr finance
+      Description:
+        A endpoint for getting user info from DynamoDB for dalr finance
         app.
       Events:
         Api:
@@ -25,9 +26,9 @@ Resources:
           Properties:
             Path: /user
             Method: GET
-      CodeUri: getQuoteFunction
+      CodeUri: getUserFunction
     Metadata:
-      SamResourceId: getQuoteFunction
+      SamResourceId: getUserFunction
 Outputs:
   WebEndpoint:
     Description: API Gateway endpoint URL for Prod stage
